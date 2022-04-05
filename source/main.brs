@@ -1,6 +1,6 @@
 sub main()
     screen = createObject("roSGScreen")
-    scene = screen.createScene("weather_screen")
+    scene = screen.createScene("weather_scene")
     screen.Show()
     port = createObject("roMessagePort")
     screen.setMessagePort(m.port)
