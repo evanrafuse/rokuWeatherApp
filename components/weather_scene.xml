@@ -2,8 +2,14 @@
 <component name="weather_scene" extends="Scene">
     <script type="text/brightscript" uri="pkg:/components/weather_scene.brs" />
 <children>
-    <category_screen
-    id="category_screen"/>
+    <!-- <category_screen
+        id="category_screen"
+        visible="true"
+        translation="[0,0]" /> -->
+    <content_screen
+        id="content_screen"
+        visible="true"
+        translation="[0,0]" />
     <!-- <Rectangle translation="[950, 530]"
     width="200"
     height="200"
