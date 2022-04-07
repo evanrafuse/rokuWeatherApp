@@ -2,19 +2,17 @@
 
 <component name="WeatherReport" extends="Group" >
     <children>
-        <LayoutGroup layoutDirection="vert" vertAlignment="top" itemSpacings="10" translation="[0,0]" >
-            <Label id="cityText" horizAlign="center" translation="[0,0]" font="font:LargeBoldSystemFont" width="500" height="65" text="City"/>
+        <LayoutGroup layoutDirection="vert" vertAlignment="vert" horizAlignment="center" itemSpacings="20" translation="[0,0]" >
+            <Label id="cityText" horizAlign="center" translation="[0,0]" font="font:LargeBoldSystemFont" width="500" height="40" text="City"/>
+            <Poster id="weatherImage" width="200" height="200" uri="pkg:/images/sample.png"/>
+            <Label id="condText" horizAlign="center" translation="[0,0]" font="font:LargeBoldSystemFont" width="500" height="40" text="Conditions"/>
             <!-- Temp Data -->
-            <Label id="tempHeader" horizAlign="left" translation="[0,0]" font="font:MediumBoldSystemFont" width="500" height="30" text="Temperature:"/>
-            <Label id="feelsTempText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="500" height="30" text="Feels Like Temperature"/>
-            <Label id="rangeTempText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="500" height="30" text="Temp Range"/>
-            <Label id="tempText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="500" height="30" text="Current Temp"/>
+            <Label id="feelsTempText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="450" height="30" text="Feels Like Temperature"/>
+            <Label id="rangeTempText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="450" height="30" text="Temp Range"/>
             <!-- Precipitation Data -->
-            <Label id="precipHeader" horizAlign="left" translation="[0,0]" font="font:MediumBoldSystemFont" width="500" height="30" text="Precipitation:"/>
-            <Label id="precipText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="500" height="30" text="Total and Type"/>
+            <Label id="precipText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="450" height="30" text="Total and Type"/>
             <!-- Wind Data -->
-            <Label id="windHeader" horizAlign="left" translation="[0,0]" font="font:MediumBoldSystemFont" width="500" height="30" text="Wind:"/>
-            <Label id="windText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="500" height="30" text="Speed and Direction"/>
+            <Label id="windText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="450" height="30" text="Speed and Direction"/>
         </LayoutGroup>
     </children>
 </component>

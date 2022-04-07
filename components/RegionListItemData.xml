@@ -4,8 +4,6 @@
   <interface> 
     <!-- labelText goes on the actual Weather Report -->
     <!-- cityName is used for the API because it doesn't include the province -->
-    <!-- posterUrl is currently defaulting in the RegionList brs file -->
-    <!-- Has to added to the JSON when I have assets to use -->
     <field id="labelText" type="string" />
     <field id="posterUrl" type="string" />
     <field id="cityName" type="string" />

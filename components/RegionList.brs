@@ -8,10 +8,11 @@ function init()
     m.top.rowItemSize = [ [196, 213], [196, 213], [196, 213] ]
     m.top.itemSpacing = [ 0, 80 ]
     m.top.rowItemSpacing = [ [20, 0] ]
-    m.top.rowLabelOffset = [ [0, 30] ]
-    m.top.rowFocusAnimationStyle = "floatingFocus"
+    m.top.rowLabelOffset = [ [0, 20] ]
+    m.top.rowFocusAnimationStyle = "fixedFocusWrap"
     m.top.showRowLabel = [true, true]
     m.top.rowLabelColor="0xFFFFFF"
+    m.top.rowLabelFont="font:MediumBoldSystemFont"
     ' Parse JSON for the city data
     m.top.content = GetRowListContent()
     m.top.visible = true
@@ -29,9 +30,7 @@ function GetRowListContent() as object
         row.title = region.name
         for each city in region.cities
             item = row.CreateChild("RegionListItemData")
-            ' Need to change this image to an actual image when I have assets
-            ' Will need to add new field to JSON (or just name the image files consistently based on city name)
-            item.posterUrl = "pkg:/images/rowSampleImage.jpg"
+            item.posterUrl = "pkg:/images/rowImages/" + city.name + ".jpg"
             item.labelText = city.name + ", " + city.province
             item.cityName = city.name
         end for

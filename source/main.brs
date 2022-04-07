@@ -1,11 +1,8 @@
-'********** Copyright 2016 Roku Corp.  All Rights Reserved. **********
-
 sub Main()
     showChannelSGScreen()
 end sub
 
 sub showChannelSGScreen()
-    print "in showChannelSGScreen"
     screen = CreateObject("roSGScreen")
     m.port = CreateObject("roMessagePort")
     screen.setMessagePort(m.port)

@@ -4,18 +4,32 @@
     <script type="text/brightscript" uri="pkg:/components/RegionListScene.brs"/>
     <children>
         <Label
-            translation="[50,50]"
+            translation="[20,20]"
             id="appHeader"
-            font="font:LargeBoldSystemFont"
-            color="0xFFFFFF"
-            text="Roku Weather App v5"
+            font="font:SmallBoldSystemFont"
+            color="0x617EFF"
+            text="Roku Weather App v6"
+        />
+        <Label
+            translation="[1080,20]"
+            id="copyHeader"
+            font="font:SmallSystemFont"
+            color="0x617EFF"
+            text="by Evan Rafuse"
         />
         <!-- This is where you chose the city -->
-        <RegionList id="theRegionList" translation="[50,100]" />
+        <RegionList id="theRegionList" translation="[70,100]" />
         <!-- This holds the information about the city chosen -->
         <WeatherReport
             id="weatherReport"
-            translation="[738, 90]"
+            translation="[990, 120]"
+        />
+        <Label
+            translation="[1000,700]"
+            id="creitHeader"
+            font="font:SmallestSystemFont"
+            color="0x617EFF"
+            text="Powered by OpenWeatherAPI"
         />
     </children>
 </component>

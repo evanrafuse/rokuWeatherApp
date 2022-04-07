@@ -3,10 +3,11 @@ function init()
     '~~~ References to weather report fields ~~~
     m.weatherReport = m.top.FindNode("weatherReport")
     m.cityLabel = m.weatherReport.FindNode("cityText")
+    m.weatherIcon = m.weatherReport.FindNode("weatherImage")
+    m.condLabel = m.weatherReport.FindNode("condText")
     ' Temperature
     m.feelsTempLabel = m.weatherReport.FindNode("feelsTempText")
     m.rangeTempLabel = m.weatherReport.FindNode("rangeTempText")
-    m.tempLabel = m.weatherReport.FindNode("tempText")
     ' Precipitation
     m.precipLabel = m.weatherReport.FindNode("precipText")
     ' Wind
@@ -52,12 +53,13 @@ sub onFeedResponse(obj)
     m.weatherData = parseJSON(response)
     
     '~~~ Add Data to weather report section ~~~
+    m.weatherIcon["uri"] = "https://openweathermap.org/img/wn/" + m.weatherData["weather"][0]["icon"] + "@2x.png"
+    m.condLabel["text"] = Str(m.weatherData["main"]["temp"]) + " C and " + m.weatherData["weather"][0]["description"]
 
     ' Feels like at the top because that's what everybody actually looks for
     ' Cleaner to do a range for min and max
     m.feelsTempLabel["text"] = "Feels Like: " + Str(m.weatherData["main"]["feels_like"]) + " C"
-    m.rangeTempLabel["text"] = "Temp: " + Str(m.weatherData["main"]["temp_min"]) + " - " + Str(m.weatherData["main"]["temp_max"]) + " C"
-    m.tempLabel["text"] = "Current: " + Str(m.weatherData["main"]["temp"]) + " C"
+    m.rangeTempLabel["text"] = "Temp: " + Str(m.weatherData["main"]["temp_min"]) + " C - " + Str(m.weatherData["main"]["temp_max"]) + " C"
 
     ' If there is no precip the JSON won't even have the fields, so check
     ' It doesn't give a 24 hour estimate, just the current 1hr forecast
@@ -107,6 +109,6 @@ sub onFeedResponse(obj)
     else
         windDir = "North-Northeast"
     end if
-    m.windLabel["text"] = windSpeed + " km/hr " + windDir
+    m.windLabel["text"] = "Wind: " + windSpeed + " km/hr " + windDir
 
 end sub

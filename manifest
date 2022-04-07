@@ -1,17 +1,17 @@
 title=Weather App
-subtitle=A Canadian Weather App
-major_version=1
+subtitle=by Evan Rafuse
+major_version=6
 minor_version=1
-build_version=00001
+build_version=6
 
-mm_icon_focus_hd=pkg:/images/MainMenu_Icon_Center_HD.png
-mm_icon_side_hd=pkg:/images/MainMenu_Icon_Side_HD.png
-mm_icon_focus_sd=pkg:/images/MainMenu_Icon_Center_SD43.png
-mm_icon_side_sd=pkg:/images/MainMenu_Icon_Side_SD43.png
+mm_icon_focus_hd=pkg:/images/MainMenu_icon_center_HD.png
+mm_icon_side_hd=pkg:/images/MainMenu_icon_side_HD.png
+mm_icon_focus_sd=pkg:/images/MainMenu_icon_center_SD43.png
+mm_icon_side_sd=pkg:/images/MainMenu_icon_side_SD43.png
 
-splash_screen_sd=pkg:/images/splash_sd.jpg
-splash_screen_hd=pkg:/images/splash_hd.jpg
-splash_screen_fhd=pkg:/images/splash_fhd.jpg
+splash_screen_sd=pkg:/images/Splash_sd.jpg
+splash_screen_hd=pkg:/images/Splash_hd.jpg
+splash_screen_fhd=pkg:/images/Splash_fhd.jpg
 splash_color=#000000
 splash_min_time=1000
 ui_resolutions=hd
