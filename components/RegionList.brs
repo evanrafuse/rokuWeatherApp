@@ -1,0 +1,40 @@
+function init()
+    ' reference the template for row objects
+    m.top.itemComponentName = "RegionListItem"
+    ' define rowlist
+    m.top.numRows = 2
+    m.top.itemSize = [196 * 3 + 20 * 2, 213]
+    m.top.rowHeights = [213]
+    m.top.rowItemSize = [ [196, 213], [196, 213], [196, 213] ]
+    m.top.itemSpacing = [ 0, 80 ]
+    m.top.rowItemSpacing = [ [20, 0] ]
+    m.top.rowLabelOffset = [ [0, 30] ]
+    m.top.rowFocusAnimationStyle = "floatingFocus"
+    m.top.showRowLabel = [true, true]
+    m.top.rowLabelColor="0xFFFFFF"
+    ' Parse JSON for the city data
+    m.top.content = GetRowListContent()
+    m.top.visible = true
+    m.top.SetFocus(true)
+end function
+
+' Parses the JSON for list of regions+cities and populates rowlist
+function GetRowListContent() as object
+    jsonAsString = ReadAsciiFile("pkg:/feed/cities.json")
+    jsondata = ParseJson(jsonAsString)
+    'Populate the RowList content here
+    data = CreateObject("roSGNode", "ContentNode")
+    for each region in jsondata.regions
+        row = data.CreateChild("ContentNode")
+        row.title = region.name
+        for each city in region.cities
+            item = row.CreateChild("RegionListItemData")
+            ' Need to change this image to an actual image when I have assets
+            ' Will need to add new field to JSON (or just name the image files consistently based on city name)
+            item.posterUrl = "pkg:/images/rowSampleImage.jpg"
+            item.labelText = city.name + ", " + city.province
+            item.cityName = city.name
+        end for
+    end for
+    return data
+end function

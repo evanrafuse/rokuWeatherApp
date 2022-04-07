@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<component name="RegionList" extends="RowList" >
+	<!-- This gets built almost entirely on the brs side -->
+	<script type="text/brightscript" uri="pkg:/components/RegionList.brs"/>
+</component>

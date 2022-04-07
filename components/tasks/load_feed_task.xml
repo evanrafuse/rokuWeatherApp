@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
     <component name = "load_feed_task" extends = "task" >
       <interface>
+      <!-- this is where the url gets set based on the city name over in RegionListScene -->
         <field id = "url" type = "string" />
         <field id = "response" type = "string" />
       </interface>

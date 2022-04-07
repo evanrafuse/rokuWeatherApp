@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<component name="RegionListScene" extends="Scene">
+    <script type="text/brightscript" uri="pkg:/components/RegionListScene.brs"/>
+    <children>
+        <Label
+            translation="[50,50]"
+            id="appHeader"
+            font="font:LargeBoldSystemFont"
+            color="0xFFFFFF"
+            text="Roku Weather App v5"
+        />
+        <!-- This is where you chose the city -->
+        <RegionList id="theRegionList" translation="[50,100]" />
+        <!-- This holds the information about the city chosen -->
+        <WeatherReport
+            id="weatherReport"
+            translation="[738, 90]"
+        />
+    </children>
+</component>
