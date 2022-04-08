@@ -1,5 +1,6 @@
 sub Main()
     showChannelSGScreen()
+    ? "IN MAIN: Starting Weather App"
 end sub
 
 sub showChannelSGScreen()

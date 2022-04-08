@@ -8,7 +8,7 @@
             id="appHeader"
             font="font:SmallBoldSystemFont"
             color="0x617EFF"
-            text="Roku Weather App v6"
+            text="Roku Weather App v7"
         />
         <Label
             translation="[1080,20]"
@@ -23,10 +23,18 @@
         <WeatherReport
             id="weatherReport"
             translation="[990, 120]"
+            visible="false"
         />
         <Label
+            translation="[810,380]"
+            id="loadingLabel"
+            font="font:LargeBoldSystemFont"
+            text="Loading Weather Data..."
+            visible="true"
+            />
+        <Label
             translation="[1000,700]"
-            id="creitHeader"
+            id="creditHeader"
             font="font:SmallestSystemFont"
             color="0x617EFF"
             text="Powered by OpenWeatherAPI"

@@ -1,4 +1,5 @@
 function init()
+    ? "IN REGIONLIST: Creating RowList of Regions"
     ' reference the template for row objects
     m.top.itemComponentName = "RegionListItem"
     ' define rowlist
@@ -15,12 +16,14 @@ function init()
     m.top.rowLabelFont="font:MediumBoldSystemFont"
     ' Parse JSON for the city data
     m.top.content = GetRowListContent()
+    ? "IN REGIONLIST: RowList Ready!"
     m.top.visible = true
     m.top.SetFocus(true)
 end function
 
 ' Parses the JSON for list of regions+cities and populates rowlist
 function GetRowListContent() as object
+    ? "IN REGIONLIST: Retrieving Region+City data from JSON file"
     jsonAsString = ReadAsciiFile("pkg:/feed/cities.json")
     jsondata = ParseJson(jsonAsString)
     'Populate the RowList content here

@@ -5,7 +5,7 @@
         <LayoutGroup layoutDirection="vert" vertAlignment="vert" horizAlignment="center" itemSpacings="20" translation="[0,0]" >
             <Label id="cityText" horizAlign="center" translation="[0,0]" font="font:LargeBoldSystemFont" width="500" height="40" text="City"/>
             <Poster id="weatherImage" width="200" height="200" uri="pkg:/images/sample.png"/>
-            <Label id="condText" horizAlign="center" translation="[0,0]" font="font:LargeBoldSystemFont" width="500" height="40" text="Conditions"/>
+            <Label id="condText" horizAlign="center" translation="[0,0]" font="font:LargeBoldSystemFont" width="500" height="40" text="Conditions" wrap="true"/>
             <!-- Temp Data -->
             <Label id="feelsTempText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="450" height="30" text="Feels Like Temperature"/>
             <Label id="rangeTempText" horizAlign="left" translation="[0,0]" font="font:MediumSystemFont" width="450" height="30" text="Temp Range"/>
