@@ -10,3 +10,5 @@ function itemContentChanged() as void
   m.itemImage.uri = itemData.posterUrl
   m.itemText.text = itemData.labelText
 end function
+
+' By Evan Rafuse 2022

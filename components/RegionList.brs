@@ -40,3 +40,5 @@ function GetRowListContent() as object
     end for
     return data
 end function
+
+' By Evan Rafuse 2022
