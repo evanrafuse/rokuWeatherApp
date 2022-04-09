@@ -8,7 +8,7 @@
             id="appHeader"
             font="font:SmallBoldSystemFont"
             color="0x617EFF"
-            text="Roku Weather App v7"
+            text="Canadian Weather App v7"
         />
         <Label
             translation="[1080,20]"
