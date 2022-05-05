@@ -1,6 +1,10 @@
 function init()
-    ? m.top.backgroundColor
-    ? "IN REGIONLISTSCENE: Initiating RegionList Secene"
+    
+    ' #if DEBUG
+    m.top.createChild("TrackerTask")
+    ' #end if
+
+    ? "IN REGIONLISTSCENE: Initiating RegionList Secene" :
     m.theRegionList = m.top.FindNode("theRegionList")
     m.loadingLabel = m.top.FindNode("loadingLabel")
     '~~~ References to weather report fields ~~~
@@ -19,7 +23,7 @@ function init()
     ' Set the data in interface by default to the first city in the first row
     defaultCity = m.theRegionList.content.getChild(0).getChild(0)
     m.cityLabel["text"] = defaultCity.labelText
-    ? "IN REGIONLISTSCENE: Calling to load data on default city (top left corner)"
+    print "IN REGIONLISTSCENE: Calling to load data on default city (top left corner)"
     loadFeed(defaultCity.cityName)
     ' Watch to see which city the user is on
     m.theRegionList.ObserveField("rowItemSelected", "onRowItemSelected")
@@ -29,14 +33,14 @@ end function
 function onRowItemSelected() as void
     m.weatherReport.visible = false
     m.loadingLabel.visible = true
-    ? "IN REGIONLISTSCENE: Row Item Selected! " 
+    print "IN REGIONLISTSCENE: Row Item Selected!" 
     ' Get coordinates in the rowList for which city is focused on
     row = m.theRegionList.rowItemSelected[0]
     col = m.theRegionList.rowItemSelected[1]
     ' Get reference to specific city name, get name from cityName interface
     chosenCity = m.theRegionList.content.getChild(row).getChild(col)
     cityName = chosenCity.cityName
-    ? "IN REGIONLISTSCENE: City Selected -> "; cityName
+    print "IN REGIONLISTSCENE: City Selected -> "; cityName
     ' Show City Name and Province at top of weather report (Includes Province unlike cityName)
     m.cityLabel["text"] = chosenCity.labelText
     ' Get weather data based on cityName
@@ -48,7 +52,7 @@ sub loadFeed(city)
     ' Just plug the cityname into the url to get the weather data
     url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + ",CA&appid=6b8afb74e995c5015cfcfb7d0796fca2&units=metric"
     ' create the task that hits the api and run it
-    ? "IN REGIONLISTSCENE: About to call API at -> "; url
+    print "IN REGIONLISTSCENE: About to call API at -> "; url
     m.feed_task = createObject("roSGNode", "load_feed_task")
     m.feed_task.observeField("response", "onFeedResponse")
     m.feed_task.url = url
@@ -57,14 +61,14 @@ sub loadFeed(city)
 
 ' Updates interface with Weather Data when response is received
 sub onFeedResponse(obj)
-    ? "IN REGIONLISTSCENE: Received Response from API Call";
+    print "IN REGIONLISTSCENE: Received Response from API Call"
     ' Parse the response for weather data
     response = obj.getData()
     m.weatherData = parseJSON(response)
 
     ' Make sure the response is actually readable so the app doesn't crash if the api is down
     if m.weatherData <> invalid and m.weatherData["weather"] <> invalid
-        ? "IN REGIONLISTSCENE: API RESPONSE VALID";
+        print "IN REGIONLISTSCENE: API RESPONSE VALID"
         '~~~ Add Data to weather report section ~~~
         m.weatherIcon["uri"] = "https://openweathermap.org/img/wn/" + m.weatherData["weather"][0]["icon"] + "@2x.png"
         m.condLabel["text"] = Str(Cint(m.weatherData["main"]["temp"])) + Chr(176) + "C and " + m.weatherData["weather"][0]["description"]
@@ -128,11 +132,11 @@ sub onFeedResponse(obj)
             windDir = "North-Northeast"
         end if
         m.windLabel["text"] = "Wind: " + windSpeed + " km/hr " + windDir
-        ? "IN REGIONLISTSCENE: Weather Data updated!";
+        print "IN REGIONLISTSCENE: Weather Data updated!"
         m.loadingLabel.visible = false
         m.weatherReport.visible = true
     else
-        ? "IN REGIONLISTSCENE: API RESPONSE INVALID, CHECK URL";
+        ? "IN REGIONLISTSCENE: API RESPONSE INVALID, CHECK URL"
     end if
 
 end sub
