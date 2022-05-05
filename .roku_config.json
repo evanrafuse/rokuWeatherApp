@@ -1,0 +1,29 @@
+{
+  "projects": {
+    "sample": {
+      "app_name": "RokuWeatherApp",
+      "stage_method": "script",
+      "source_files": [
+        "assets",
+        "components",
+        "source",
+        "manifest"
+      ],
+      "stages": {
+        "main": {
+          "key": "main",
+          "script": {
+            "stage": "cp -r ./src/* .",
+            "unstage": "rm -rf manifest source components assets"
+          }
+        }
+      }
+    }
+  },
+  "keys": {
+    "main": {
+      "keyed_pkg": "./keys/key_405a1eaf7658ae89ce4ce3fdc396c54599a15936.pkg",
+      "password": "SYKzKe2Xr/0pQ7fdQpizWg=="
+    }
+  }
+}

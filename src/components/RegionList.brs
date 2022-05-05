@@ -24,7 +24,7 @@ end function
 ' Parses the JSON for list of regions+cities and populates rowlist
 function GetRowListContent() as object
     ? "IN REGIONLIST: Retrieving Region+City data from JSON file"
-    jsonAsString = ReadAsciiFile("pkg:/feed/cities.json")
+    jsonAsString = ReadAsciiFile("pkg:/assets/feed/cities.json")
     jsondata = ParseJson(jsonAsString)
     'Populate the RowList content here
     data = CreateObject("roSGNode", "ContentNode")
@@ -33,7 +33,7 @@ function GetRowListContent() as object
         row.title = region.name
         for each city in region.cities
             item = row.CreateChild("RegionListItemData")
-            item.posterUrl = "pkg:/images/rowImages/" + city.name + ".jpg"
+            item.posterUrl = "pkg:/assets/images/rowImages/" + city.name + ".jpg"
             item.labelText = city.name + ", " + city.province
             item.cityName = city.name
         end for
