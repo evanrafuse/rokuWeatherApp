@@ -1,12 +1,24 @@
 sub init()
-  m.top.functionname = "request"
-  m.top.response = ""
+  m.top.functionname = "startRequest"
+  m.messagePort = CreateObject("roMessagePort")
+  m.top.observeField("url", m.messagePort)
+  print "Initiallizd Task"
 end sub
 
+sub startRequest()
+  print "Triggered startRequest"
+  msg = wait(0, m.messagePort)
+  if type(msg) = "roSGNodeEvent"
+    print "Node Event in startRequest!"
+    request(msg.getData())
+  endif
+end sub
+
+
 ' Calls the API and gets the weather data
-function request()
-  ' get the url
-  url = m.top.url
+function request(url)
+  print "Triggered Request"
+  print url
   ' create http object and give it a port
   http = createObject("roUrlTransfer")
   http.RetainBodyOnError(true)
@@ -27,14 +39,14 @@ function request()
         ' this field will be watched in RegionListScene
         m.top.response = msg.getstring()
       else
-        ? "feed load failed: "; msg.getfailurereason();" "; msg.getresponsecode();" "; m.top.url
+        ? "feed load failed: "; msg.getfailurereason();" "; msg.getresponsecode();" "; url
         m.top.response = ""
       end if
       http.asynccancel()
     else if (msg = invalid)
       ' This would be sad
       ? "feed load failed."
-      m.top.response =""
+      m.top.response = ""
       http.asynccancel()
     end if
   end if
