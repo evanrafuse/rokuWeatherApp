@@ -1,7 +1,7 @@
 # rokuWeatherApp
 Roku Weather App for Self-Directed
 
-I built this app while learning Roku (BrightScript/SceneGraph). The photographs are from Unsplash. The logo is terrible (that's how you can tell it was made by me).
+I built this app while learning Roku (BrightScript/SceneGraph). The photographs are from Unsplash. The logo is terrible (that's how you can tell it was made by me). This should be pretty much good to go, add an .env file and it should launch in VS Code.
 
 Changelog:
 
