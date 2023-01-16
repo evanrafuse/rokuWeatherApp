@@ -5,13 +5,16 @@ I built this app while learning Roku (BrightScript/SceneGraph). The photographs 
 
 Changelog:
 
-May 5 (later) - Removed Rendezvous in tasks
+January 16 2023 - Cleaning up
+Removed the RokuBuilder stuff, wasn't necessary. The app still launches from the VS Code. Don't bother with the NPM nonsense. Also removed the RALE stuff.
+
+May 5 2022 (later) - Removed Rendezvous in tasks
 Changed load_feed_task to remove unnecessary rendezvous.
 
-May 5 - Added Config Files
+May 5 2022 - Added Config Files
 The app can now be launched with the BrightScript extension, RokuBuilder or RALE.
 It will throw an error on launch about TrackerTask. X it and it will launch.
 Don't forget to npm install and build install in the root before launching.
 Remember to launch with Roku Builder you have to be in the src directory.
 
-April 12 - Added README to git
+April 12 2022 - Added README to git
