@@ -49,8 +49,10 @@ end function
 
 ' Hits API for Weather Data
 sub loadFeed(city)
+    apiKey = ParseJson(ReadAsciiFile("pkg:/assets/api_key.json"))
+
     ' Just plug the cityname into the url to get the weather data
-    url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + ",CA&appid=6b8afb74e995c5015cfcfb7d0796fca2&units=metric"
+    url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + ",CA&appid="+ apiKey +"&units=metric"
     ' create the task that hits the api and run it
     print "IN REGIONLISTSCENE: About to call API at -> "; url
     m.feed_task = createObject("roSGNode", "load_feed_task")
