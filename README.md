@@ -18,3 +18,9 @@ Don't forget to npm install and build install in the root before launching.
 Remember to launch with Roku Builder you have to be in the src directory.
 
 April 12 2022 - Added README to git
+
+
+TODO:
+-> Add Settings page that saves default city to Registry
+-> Finish Single City Weather Data Screen
+-> Add Deep Linking to Specific Cities
